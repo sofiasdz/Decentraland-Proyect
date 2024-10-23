@@ -4,6 +4,10 @@ import { Schemas, engine } from '@dcl/sdk/ecs'
 // engine.getEntitiesWith(Spinner)
 export const Spinner = engine.defineComponent('spinner', { speed: Schemas.Number })
 
-export const LegoToken = engine.defineComponent('lego-token-id', {})
+export const LegoAirplaneToken = engine.defineComponent('lego-token-id', {})
 
 export const LegoAirplane = engine.defineComponent('lego-airplane-id', {})
+
+export const LegoHelicopterToken = engine.defineComponent('lego-token-id', {})
+
+export const LegoHelicopter = engine.defineComponent('lego-helicopter-id', {})

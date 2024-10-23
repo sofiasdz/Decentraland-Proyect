@@ -7,11 +7,11 @@ import {
   pointerEventsSystem,
 } from '@dcl/sdk/ecs'
 import { Quaternion } from '@dcl/sdk/math'
-import { LegoAirplane, LegoToken } from './components'
+import { LegoAirplane, LegoAirplaneToken } from './components'
 import {openExternalUrl} from "~system/RestrictedActions"
 
 export function collectedTokensSystem() {
-  if (Array.from(engine.getEntitiesWith(LegoToken)).length === 0 && Array.from(engine.getEntitiesWith(LegoAirplane)).length === 0) {
+  if (Array.from(engine.getEntitiesWith(LegoAirplaneToken)).length === 0 && Array.from(engine.getEntitiesWith(LegoAirplane)).length === 0) {
     let plane = engine.addEntity()
     LegoAirplane.create(plane)
     GltfContainer.create(plane, {

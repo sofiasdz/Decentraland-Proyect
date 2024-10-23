@@ -5,39 +5,44 @@ import { engine, GltfContainer, Transform } from '@dcl/sdk/ecs'
 import { collectedTokensSystem as collectedTokensSystem } from './systems'
 
 
-import { createLegoToken } from './factory'
+import { createLegoAirplaneToken, createLegoHelicopterToken } from './factory'
 
 export function main() {
   engine.addSystem(collectedTokensSystem)
 
-  createLegoToken({x: 4, y: 1.5, z: 29})
-  createLegoToken({x: 4, y: 2.75, z: 24})
-  createLegoToken({x: 4, y: 4, z: 19})
+  createLegoAirplaneToken({x: 4, y: 1.5, z: 29})
+  createLegoAirplaneToken({x: 4, y: 2.75, z: 24})
+  createLegoAirplaneToken({x: 4, y: 4, z: 19})
+
+  createLegoHelicopterToken({x: 25, y: 6, z: 40.25})
+  createLegoHelicopterToken({x: 29.75, y: 6, z: 40.25})
+  createLegoHelicopterToken({x: 29.75, y: 6, z: 35})
+  createLegoHelicopterToken({x: 25, y: 6, z: 35})
 
   // FLOOR
-  let legoFloor1 = engine.addEntity()
-  GltfContainer.create(legoFloor1, { 
-    src: 'models/lego-floor.glb', 
-  })
-  Transform.create(legoFloor1, {
-    position: {x: 8, y: 0, z: 8},
-  })
+  // let legoFloor1 = engine.addEntity()
+  // GltfContainer.create(legoFloor1, { 
+  //   src: 'models/lego-floor.glb', 
+  // })
+  // Transform.create(legoFloor1, {
+  //   position: {x: 8, y: 0, z: 8},
+  // })
 
-  let legoFloor2 = engine.addEntity()
-  GltfContainer.create(legoFloor2, { 
-    src: 'models/lego-floor.glb', 
-  })
-  Transform.create(legoFloor2, {
-    position: {x: 24, y: 0, z: 8},
-  })
+  // let legoFloor2 = engine.addEntity()
+  // GltfContainer.create(legoFloor2, { 
+  //   src: 'models/lego-floor.glb', 
+  // })
+  // Transform.create(legoFloor2, {
+  //   position: {x: 24, y: 0, z: 8},
+  // })
 
-  let legoFloor3 = engine.addEntity()
-  GltfContainer.create(legoFloor3, { 
-    src: 'models/lego-floor.glb', 
-  })
-  Transform.create(legoFloor3, {
-    position: {x: 24, y: 0, z: 24},
-  })
+  // let legoFloor3 = engine.addEntity()
+  // GltfContainer.create(legoFloor3, { 
+  //   src: 'models/lego-floor.glb', 
+  // })
+  // Transform.create(legoFloor3, {
+  //   position: {x: 24, y: 0, z: 24},
+  // })
 
   // GRASS
   let legoGrass1 = engine.addEntity()
