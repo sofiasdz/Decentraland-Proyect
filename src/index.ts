@@ -1,0 +1,102 @@
+// We define the empty imports so the auto-complete feature works as expected.
+import { Quaternion } from '@dcl/sdk/math'
+import { engine, GltfContainer, InputAction, Material, PointerEvents, pointerEventsSystem, PointerEventType, Transform } from '@dcl/sdk/ecs'
+
+import { changeColorSystem, circularSystem, collectedTokensSystem as collectedTokensSystem } from './systems'
+import { setupUi } from './ui'
+
+import { LegoToken, Spinner } from './components'
+
+import * as utils from '@dcl-sdk/utils'
+import { Color4, Color3, Vector3 } from '@dcl/sdk/math'
+import { createLegoToken } from './factory'
+
+export function main() {
+  engine.addSystem(circularSystem)
+  engine.addSystem(changeColorSystem)
+  engine.addSystem(collectedTokensSystem)
+
+  // setupUi()
+
+  // Tokens
+  createLegoToken({x: 4, y: 1.5, z: 29})
+  createLegoToken({x: 4, y: 2.75, z: 24})
+  createLegoToken({x: 4, y: 4, z: 19})
+
+  let legoStore = engine.addEntity()
+  GltfContainer.create(legoStore, { 
+    src: 'models/lego-store.glb', 
+  })
+  Transform.create(legoStore, {
+    position: {x: 4, y: 0, z: 44.75},
+    rotation: {x: 0, y: 90, z: 0, w: 0},
+  })
+
+  // FLOOR
+  let legoFloor1 = engine.addEntity()
+  GltfContainer.create(legoFloor1, { 
+    src: 'models/lego-floor.glb', 
+  })
+  Transform.create(legoFloor1, {
+    position: {x: 8, y: 0, z: 8},
+  })
+
+  let legoFloor2 = engine.addEntity()
+  GltfContainer.create(legoFloor2, { 
+    src: 'models/lego-floor.glb', 
+  })
+  Transform.create(legoFloor2, {
+    position: {x: 24, y: 0, z: 8},
+  })
+
+  let legoFloor3 = engine.addEntity()
+  GltfContainer.create(legoFloor3, { 
+    src: 'models/lego-floor.glb', 
+  })
+  Transform.create(legoFloor3, {
+    position: {x: 24, y: 0, z: 24},
+  })
+
+  // GRASS
+  let legoGrass1 = engine.addEntity()
+  GltfContainer.create(legoGrass1, { 
+    src: 'models/lego-grass.glb', 
+  })
+  Transform.create(legoGrass1, {
+    position: {x: 8, y: 0, z: 24},
+  })
+
+  let legoGrass2 = engine.addEntity()
+  GltfContainer.create(legoGrass2, { 
+    src: 'models/lego-grass.glb', 
+  })
+  Transform.create(legoGrass2, {
+    position: {x: 24, y: 0, z: 40},
+  })
+
+  let legoGrass3 = engine.addEntity()
+  GltfContainer.create(legoGrass3, { 
+    src: 'models/lego-grass-store.glb', 
+  })
+  Transform.create(legoGrass3, {
+    position: {x: 8, y: 0, z: 40},
+  })
+  let legoFigure = engine.addEntity()
+  GltfContainer.create(legoFigure, { 
+    src: 'models/lego-figure.glb', 
+  })
+  Transform.create(legoFigure, {
+    position: {x: 1, y: 1, z: 41},
+    rotation: Quaternion.fromEulerDegrees(0, 90, 0)
+  })
+
+  let legoAirplaneObstacle = engine.addEntity()
+  GltfContainer.create(legoAirplaneObstacle, { 
+    src: 'models/lego-airplane-obstacle.glb', 
+  })
+  Transform.create(legoAirplaneObstacle, {
+    position: {x: 4, y: 1, z: 25},
+    rotation: Quaternion.fromEulerDegrees(0, 180, 0),
+  })
+}
+

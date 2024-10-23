@@ -1,0 +1,50 @@
+{
+  "ecs7": true,
+  "runtimeVersion": "7",
+  "display": {
+    "title": "SDK7 Scene Template",
+    "description": "template scene with SDK7",
+    "navmapThumbnail": "images/scene-thumbnail.png",
+    "favicon": "favicon_asset"
+  },
+  "owner": "",
+  "contact": {
+    "name": "SDK",
+    "email": ""
+  },
+  "main": "bin/index.js",
+  "tags": [],
+  "scene": {
+    "parcels": [
+      "0,0", "0,1", "0,2", 
+      "1,0", "1,1", "1,2"
+    ],
+    "base": "0,0"
+  },
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": {
+        "x": [
+          25
+        ],
+        "y": [
+          10
+        ],
+        "z": [
+          25
+        ]
+      },
+      "cameraTarget": {
+        "x": 25,
+        "y": 0,
+        "z": 35
+      }
+    }
+  ],
+  "featureToggles": {
+    "voiceChat": "enabled",
+    "portableExperiences": "enabled"
+  }
+}
