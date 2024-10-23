@@ -91,5 +91,14 @@ export function main() {
     position: {x: 4, y: 1, z: 25},
     rotation: Quaternion.fromEulerDegrees(0, 180, 0),
   })
+
+  let legoHelicopterObstacle = engine.addEntity()
+  GltfContainer.create(legoHelicopterObstacle, { 
+    src: 'models/lego-helicopter-obstacle.glb', 
+  })
+  Transform.create(legoHelicopterObstacle, {
+    position: {x: 25, y: 1, z: 43},
+    rotation: Quaternion.fromEulerDegrees(0, 180, 0),
+  })
 }
 
