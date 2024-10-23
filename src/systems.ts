@@ -6,9 +6,25 @@ import {
   InputAction,
   pointerEventsSystem,
 } from '@dcl/sdk/ecs'
-import { Quaternion } from '@dcl/sdk/math'
-import { LegoAirplane, LegoAirplaneToken } from './components'
+import { Quaternion, Vector3 } from '@dcl/sdk/math'
+import { LegoAirplane, LegoAirplaneToken, Spinner } from './components'
 import {openExternalUrl} from "~system/RestrictedActions"
+
+/**
+ * All cubes rotating behavior
+ */
+export function circularSystem(dt: number) {
+  const entitiesWithSpinner = engine.getEntitiesWith(Spinner, Transform)
+  for (const [entity, _spinner, _transform] of entitiesWithSpinner) {
+    const mutableTransform = Transform.getMutable(entity)
+    const spinnerData = Spinner.get(entity)
+
+    mutableTransform.rotation = Quaternion.multiply(
+      mutableTransform.rotation,
+      Quaternion.fromAngleAxis(dt * spinnerData.speed, Vector3.Up())
+    )
+  }
+}
 
 export function collectedTokensSystem() {
   if (Array.from(engine.getEntitiesWith(LegoAirplaneToken)).length === 0 && Array.from(engine.getEntitiesWith(LegoAirplane)).length === 0) {

@@ -18,7 +18,7 @@ export function createLegoAirplaneToken(position: {x: number, y: number, z: numb
     position: position,
     scale: {x: 0.25, y: 0.25, z: 0.25},
   })
-  Spinner.create(token, { speed: 40 })
+  Spinner.create(token, { speed: 60 })
 
     /**
    * Sound is a separated from the coin entity so that you can
@@ -52,7 +52,7 @@ export function createLegoHelicopterToken(position: {x: number, y: number, z: nu
     position: position,
     scale: {x: 0.25, y: 0.25, z: 0.25},
   })
-  Spinner.create(token, { speed: 40 })
+  Spinner.create(token, { speed: 60 })
 
     /**
    * Sound is a separated from the coin entity so that you can
