@@ -6,6 +6,7 @@ import { circularSystem, collectedTokensSystem as collectedTokensSystem } from '
 
 
 import { createLegoAirplaneToken, createLegoHelicopterToken } from './factory'
+import { LegoAirplane } from './components'
 
 export function main() {
   engine.addSystem(circularSystem)
