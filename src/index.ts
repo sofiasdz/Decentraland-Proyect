@@ -1,36 +1,18 @@
 // We define the empty imports so the auto-complete feature works as expected.
 import { Quaternion } from '@dcl/sdk/math'
-import { engine, GltfContainer, InputAction, Material, PointerEvents, pointerEventsSystem, PointerEventType, Transform } from '@dcl/sdk/ecs'
+import { engine, GltfContainer, Transform } from '@dcl/sdk/ecs'
 
-import { changeColorSystem, circularSystem, collectedTokensSystem as collectedTokensSystem } from './systems'
-import { setupUi } from './ui'
+import { collectedTokensSystem as collectedTokensSystem } from './systems'
 
-import { LegoToken, Spinner } from './components'
 
-import * as utils from '@dcl-sdk/utils'
-import { Color4, Color3, Vector3 } from '@dcl/sdk/math'
 import { createLegoToken } from './factory'
 
 export function main() {
-  engine.addSystem(circularSystem)
-  engine.addSystem(changeColorSystem)
   engine.addSystem(collectedTokensSystem)
 
-  // setupUi()
-
-  // Tokens
   createLegoToken({x: 4, y: 1.5, z: 29})
   createLegoToken({x: 4, y: 2.75, z: 24})
   createLegoToken({x: 4, y: 4, z: 19})
-
-  let legoStore = engine.addEntity()
-  GltfContainer.create(legoStore, { 
-    src: 'models/lego-store.glb', 
-  })
-  Transform.create(legoStore, {
-    position: {x: 4, y: 0, z: 44.75},
-    rotation: {x: 0, y: 90, z: 0, w: 0},
-  })
 
   // FLOOR
   let legoFloor1 = engine.addEntity()
@@ -81,6 +63,17 @@ export function main() {
   Transform.create(legoGrass3, {
     position: {x: 8, y: 0, z: 40},
   })
+
+  //
+  let legoStore = engine.addEntity()
+  GltfContainer.create(legoStore, { 
+    src: 'models/lego-store.glb', 
+  })
+  Transform.create(legoStore, {
+    position: {x: 4, y: 0, z: 44.75},
+    rotation: {x: 0, y: 90, z: 0, w: 0},
+  })
+  
   let legoFigure = engine.addEntity()
   GltfContainer.create(legoFigure, { 
     src: 'models/lego-figure.glb', 
