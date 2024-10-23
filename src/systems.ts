@@ -5,6 +5,8 @@ import {
   Transform,
   InputAction,
   pointerEventsSystem,
+  Tween,
+  EasingFunction,
 } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math'
 import { LegoAirplane, LegoAirplaneToken, LegoHelicopter, LegoHelicopterToken, Spinner } from './components'
@@ -36,6 +38,14 @@ export function collectedTokensSystem() {
     Transform.create(plane, {
       position: {x: 12, y: 2.95, z: 9},
       rotation: {x: 0, y: 90, z: 0, w: 0},
+    })
+    Tween.create(plane, {
+      mode: Tween.Mode.Scale({
+        start: Vector3.Zero(),
+        end: Vector3.One(),
+      }),
+      duration: 5000,
+      easingFunction: EasingFunction.EF_EASEINBOUNCE,
     })
 
     const surpriseSound = engine.addEntity();
@@ -72,6 +82,14 @@ export function collectedTokensSystem() {
     })
     Transform.create(helicopter, {
       position: {x: 21.75, y: 2.95, z: 27},
+    })
+    Tween.create(helicopter, {
+      mode: Tween.Mode.Scale({
+        start: Vector3.Zero(),
+        end: Vector3.One(),
+      }),
+      duration: 5000,
+      easingFunction: EasingFunction.EF_EASEINBOUNCE,
     })
 
     const surpriseSound = engine.addEntity();
