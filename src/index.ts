@@ -73,7 +73,7 @@ export function main() {
     position: {x: 4, y: 0, z: 44.75},
     rotation: {x: 0, y: 90, z: 0, w: 0},
   })
-  
+
   let legoFigure = engine.addEntity()
   GltfContainer.create(legoFigure, { 
     src: 'models/lego-figure.glb', 

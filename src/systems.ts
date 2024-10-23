@@ -33,7 +33,7 @@ export function collectedTokensSystem() {
       src: 'models/lego-airplane-portrait.glb',  
     })
     Transform.create(legoAirplanePortrait, {
-      position: {x: 5, y: 2, z: 47.5},
+      position: {x: 2.5, y: 1.75, z: 47.5},
       rotation: Quaternion.fromEulerDegrees(90, 180, 0)
     })
     pointerEventsSystem.onPointerDown(
@@ -41,7 +41,7 @@ export function collectedTokensSystem() {
         entity: legoAirplanePortrait,
         opts: {
           button: InputAction.IA_POINTER,
-          hoverText: 'View Product',
+          hoverText: 'Ver Producto',
         }
       },
       function () {openExternalUrl({url: "https://www.lego.com/en-us/product/propeller-plane-31099"})}
