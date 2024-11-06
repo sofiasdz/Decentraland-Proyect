@@ -15,6 +15,27 @@ import {openExternalUrl} from "~system/RestrictedActions"
 /**
  * All cubes rotating behavior
  */
+export function poapSystem(){
+  let POAP_dispenser = engine.addEntity()
+    GltfContainer.create(POAP_dispenser, { 
+      src: 'models/POAP_dispenser.glb',  
+    })
+    Transform.create(POAP_dispenser, {
+      position: {x: 10, y: 0, z:5 },
+    
+    })
+    pointerEventsSystem.onPointerDown(
+      {
+        entity: POAP_dispenser,
+        opts: {
+          button: InputAction.IA_POINTER,
+          hoverText: 'Claim POAP',
+        }
+      },
+      function () {openExternalUrl({url: "https://poap.xyz/mint/5kn3ha"})}
+    )
+  }
+  
 export function circularSystem(dt: number) {
   const entitiesWithSpinner = engine.getEntitiesWith(Spinner, Transform)
   for (const [entity, _spinner, _transform] of entitiesWithSpinner) {
@@ -74,7 +95,8 @@ export function collectedTokensSystem() {
     )
   }
 
-  if (Array.from(engine.getEntitiesWith(LegoHelicopterToken)).length === 0 && Array.from(engine.getEntitiesWith(LegoHelicopter)).length === 0) {
+
+if (Array.from(engine.getEntitiesWith(LegoHelicopterToken)).length === 0 && Array.from(engine.getEntitiesWith(LegoHelicopter)).length === 0) {
     let helicopter = engine.addEntity()
     LegoHelicopter.create(helicopter)
     GltfContainer.create(helicopter, {
@@ -117,4 +139,4 @@ export function collectedTokensSystem() {
     //   function () {openExternalUrl({url: "https://www.lego.com/en-us/product/propeller-plane-31099"})}
     // )
   }
-}
+  }

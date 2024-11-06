@@ -2,7 +2,7 @@
 import { Quaternion } from '@dcl/sdk/math'
 import { engine, GltfContainer, Transform } from '@dcl/sdk/ecs'
 
-import { circularSystem, collectedTokensSystem as collectedTokensSystem } from './systems'
+import { circularSystem, collectedTokensSystem as collectedTokensSystem, poapSystem } from './systems'
 
 
 import { createLegoAirplaneToken, createLegoHelicopterToken } from './factory'
@@ -11,6 +11,7 @@ import { LegoAirplane } from './components'
 export function main() {
   engine.addSystem(circularSystem)
   engine.addSystem(collectedTokensSystem)
+  engine.addSystem(poapSystem)
 
   createLegoAirplaneToken({x: 4, y: 1.5, z: 29})
   createLegoAirplaneToken({x: 4, y: 2.75, z: 24})
