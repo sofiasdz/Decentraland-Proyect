@@ -2,73 +2,43 @@
 import { Quaternion } from '@dcl/sdk/math'
 import { engine, GltfContainer, Transform } from '@dcl/sdk/ecs'
 
-import { circularSystem, collectedTokensSystem as collectedTokensSystem } from './systems'
+import { circularSystem, collectedTokensSystem, poapSystem } from './systems'
 
 
 import { createLegoAirplaneToken, createLegoHelicopterToken } from './factory'
-import { LegoAirplane } from './components'
 
 export function main() {
   engine.addSystem(circularSystem)
   engine.addSystem(collectedTokensSystem)
+  engine.addSystem(poapSystem)
 
-  createLegoAirplaneToken({x: 4, y: 1.5, z: 29})
-  createLegoAirplaneToken({x: 4, y: 2.75, z: 24})
-  createLegoAirplaneToken({x: 4, y: 4, z: 19})
+  // createLegoAirplaneToken({x: 4, y: 2, z: 28.75})
+  // createLegoAirplaneToken({x: 4, y: 3.25, z: 23.75})
+  createLegoAirplaneToken({x: 4, y: 4.25, z: 18.75})
 
-  createLegoHelicopterToken({x: 25, y: 6, z: 40.25})
-  createLegoHelicopterToken({x: 29.75, y: 6, z: 40.25})
-  createLegoHelicopterToken({x: 29.75, y: 6, z: 35.5})
-  createLegoHelicopterToken({x: 25, y: 6, z: 35.5})
+  // createLegoHelicopterToken({x: 24, y: 5, z: 38})
+  // createLegoHelicopterToken({x: 28.75, y: 5, z: 38})
+  // createLegoHelicopterToken({x: 28.75, y: 5, z: 33.25})
+  createLegoHelicopterToken({x: 24, y: 5, z: 33.25})
 
-  // FLOOR
-  // let legoFloor1 = engine.addEntity()
-  // GltfContainer.create(legoFloor1, { 
-  //   src: 'models/lego-floor.glb', 
-  // })
-  // Transform.create(legoFloor1, {
-  //   position: {x: 8, y: 0, z: 8},
-  // })
-
-  // let legoFloor2 = engine.addEntity()
-  // GltfContainer.create(legoFloor2, { 
-  //   src: 'models/lego-floor.glb', 
-  // })
-  // Transform.create(legoFloor2, {
-  //   position: {x: 24, y: 0, z: 8},
-  // })
-
-  // let legoFloor3 = engine.addEntity()
-  // GltfContainer.create(legoFloor3, { 
-  //   src: 'models/lego-floor.glb', 
-  // })
-  // Transform.create(legoFloor3, {
-  //   position: {x: 24, y: 0, z: 24},
-  // })
-
-  // GRASS
-  let legoGrass1 = engine.addEntity()
-  GltfContainer.create(legoGrass1, { 
-    src: 'models/lego-grass.glb', 
+  let legoStarPilot = engine.addEntity()
+  GltfContainer.create(legoStarPilot, { 
+    src: 'models/lego-star-pilot.glb', 
   })
-  Transform.create(legoGrass1, {
-    position: {x: 8, y: 0, z: 24},
+  Transform.create(legoStarPilot, {
+    position: {x: 13, y: 0, z: 2},
+    scale: {x: 0.02, y: 0.02, z: 0.02},
+    rotation: Quaternion.fromEulerDegrees(0, 135, 0)
   })
 
-  let legoGrass2 = engine.addEntity()
-  GltfContainer.create(legoGrass2, { 
-    src: 'models/lego-grass.glb', 
+  let legoStarPilot2 = engine.addEntity()
+  GltfContainer.create(legoStarPilot2, { 
+    src: 'models/lego-star-pilot.glb', 
   })
-  Transform.create(legoGrass2, {
-    position: {x: 24, y: 0, z: 40},
-  })
-
-  let legoGrass3 = engine.addEntity()
-  GltfContainer.create(legoGrass3, { 
-    src: 'models/lego-grass-store.glb', 
-  })
-  Transform.create(legoGrass3, {
-    position: {x: 8, y: 0, z: 40},
+  Transform.create(legoStarPilot2, {
+    position: {x: 30, y: 0, z: 26},
+    scale: {x: 0.02, y: 0.02, z: 0.02},
+    rotation: Quaternion.fromEulerDegrees(0, 135, 0)
   })
 
   //
@@ -79,33 +49,6 @@ export function main() {
   Transform.create(legoStore, {
     position: {x: 4, y: 0, z: 44.75},
     rotation: {x: 0, y: 90, z: 0, w: 0},
-  })
-
-  let legoFigure = engine.addEntity()
-  GltfContainer.create(legoFigure, { 
-    src: 'models/lego-figure.glb', 
-  })
-  Transform.create(legoFigure, {
-    position: {x: 1, y: 1, z: 41},
-    rotation: Quaternion.fromEulerDegrees(0, 90, 0)
-  })
-
-  let legoAirplaneObstacle = engine.addEntity()
-  GltfContainer.create(legoAirplaneObstacle, { 
-    src: 'models/lego-airplane-obstacle.glb', 
-  })
-  Transform.create(legoAirplaneObstacle, {
-    position: {x: 4, y: 1, z: 25},
-    rotation: Quaternion.fromEulerDegrees(0, 180, 0),
-  })
-
-  let legoHelicopterObstacle = engine.addEntity()
-  GltfContainer.create(legoHelicopterObstacle, { 
-    src: 'models/lego-helicopter-obstacle.glb', 
-  })
-  Transform.create(legoHelicopterObstacle, {
-    position: {x: 25, y: 1, z: 43},
-    rotation: Quaternion.fromEulerDegrees(0, 180, 0),
   })
 }
 
