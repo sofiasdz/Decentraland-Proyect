@@ -16,9 +16,9 @@ export function main() {
   createLegoAirplaneToken({x: 25.25, y: 6, z: 19})
   createLegoAirplaneToken({x: 27, y: 6, z: 22.75})
 
-  // createLegoHelicopterToken({x: 25.5, y: 5.5, z: 43.5})
-  // createLegoHelicopterToken({x: 19.5, y: 5.5, z: 43.5})
-  // createLegoHelicopterToken({x: 13.5, y: 5.5, z: 43.5})
+  createLegoHelicopterToken({x: 25.5, y: 5.5, z: 43.5})
+  createLegoHelicopterToken({x: 19.5, y: 5.5, z: 43.5})
+  createLegoHelicopterToken({x: 13.5, y: 5.5, z: 43.5})
 
   // let legoStarPilot = engine.addEntity()
   // GltfContainer.create(legoStarPilot, { 
