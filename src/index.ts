@@ -20,25 +20,46 @@ export function main() {
   createLegoHelicopterToken({x: 19.5, y: 5.5, z: 43.5})
   createLegoHelicopterToken({x: 13.5, y: 5.5, z: 43.5})
 
-  // let legoStarPilot = engine.addEntity()
-  // GltfContainer.create(legoStarPilot, { 
-  //   src: 'models/lego-star-pilot.glb', 
-  // })
-  // Transform.create(legoStarPilot, {
-  //   position: {x: 13, y: 0, z: 2},
-  //   scale: {x: 0.02, y: 0.02, z: 0.02},
-  //   rotation: Quaternion.fromEulerDegrees(0, 135, 0)
-  // })
+  let legoStarPilot = engine.addEntity()
+GltfContainer.create(legoStarPilot, { 
+     src: 'models/lego-star-pilot.glb', 
+   })
+   Transform.create(legoStarPilot, {
+     position: {x: 3, y: 0, z: 2},
+     scale: {x: 0.02, y: 0.02, z: 0.02},
+     rotation: Quaternion.fromEulerDegrees(0, 135, 0)
+   })
 
-  // let legoStarPilot2 = engine.addEntity()
-  // GltfContainer.create(legoStarPilot2, { 
-  //   src: 'models/lego-star-pilot.glb', 
-  // })
-  // Transform.create(legoStarPilot2, {
-  //   position: {x: 30, y: 0, z: 26},
-  //   scale: {x: 0.02, y: 0.02, z: 0.02},
-  //   rotation: Quaternion.fromEulerDegrees(0, 135, 0)
-  // })
+  let spawnBase = engine.addEntity()
+  GltfContainer.create(spawnBase, { 
+        src: 'models/spawn-base.glb', 
+      })
+      Transform.create(spawnBase, {
+        position: {x: 3, y: 2, z: 2},
+        scale: {x: 1, y: 1, z: 1},
+        rotation: Quaternion.fromEulerDegrees(0, 135, 0)
+      })
+
+  let arrowSign = engine.addEntity()
+  GltfContainer.create(arrowSign, { 
+           src: 'models/arrow_sign.glb', 
+         })
+       Transform.create(arrowSign, {
+           position: {x: 5, y: 0, z: 2},
+           scale: {x: 0.5, y: 0.5, z: 0.5},
+           rotation: Quaternion.fromEulerDegrees(0, -100, 0)
+         })
+    
+  let legoLogo = engine.addEntity()
+    GltfContainer.create(legoLogo, { 
+              src: 'models/lego.glb', 
+            })
+            Transform.create(legoLogo, {
+              position: {x: 6, y: 1, z: 6},
+              scale: {x: 10, y: 10, z: 10},
+              rotation: Quaternion.fromEulerDegrees(0,150 , 0)
+            })
+   
 
 
   let stage = engine.addEntity()
