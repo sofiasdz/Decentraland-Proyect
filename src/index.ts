@@ -7,6 +7,8 @@ import { circularSystem, collectedTokensSystem, poapSystem } from './systems'
 
 import { createLegoAirplaneToken, createLegoHelicopterToken } from './factory'
 
+import { AudioSource } from "@dcl/sdk/ecs"
+
 export function main() {
   engine.addSystem(circularSystem)
   engine.addSystem(collectedTokensSystem)
@@ -58,6 +60,13 @@ GltfContainer.create(legoStarPilot, {
               position: {x: 6, y: 1, z: 6},
               scale: {x: 10, y: 10, z: 10},
               rotation: Quaternion.fromEulerDegrees(0,150 , 0)
+            })
+  const sourceEntity = engine.addEntity()
+
+  AudioSource.create(sourceEntity, {
+              audioClipUrl: 'sounds/retro-game-arcade-short-236130.mp3',
+              loop: true,
+              playing: true,
             })
    
 
