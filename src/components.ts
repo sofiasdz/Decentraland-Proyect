@@ -11,3 +11,5 @@ export const LegoAirplane = engine.defineComponent('lego-airplane-id', {})
 export const LegoHelicopterToken = engine.defineComponent('lego-helicopter-token-id', {})
 
 export const LegoHelicopter = engine.defineComponent('lego-helicopter-id', {})
+
+export const PoapDispenser = engine.defineComponent('poap-dispenser-id', {})

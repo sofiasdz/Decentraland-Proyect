@@ -12,11 +12,11 @@ export function createLegoAirplaneToken(position: {x: number, y: number, z: numb
   let token = engine.addEntity()
   LegoAirplaneToken.create(token)
   GltfContainer.create(token, {
-    src: 'models/lego-token.glb'
+    src: 'models/token.glb'
   })
   Transform.create(token, {
     position: position,
-    scale: {x: 0.25, y: 0.25, z: 0.25},
+    // scale: {x: 0.25, y: 0.25, z: 0.25},
   })
   Spinner.create(token, { speed: 60 })
 

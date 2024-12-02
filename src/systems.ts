@@ -7,31 +7,36 @@ import {
   pointerEventsSystem,
 } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math'
-import { LegoAirplane, LegoAirplaneToken, LegoHelicopter, LegoHelicopterToken, Spinner } from './components'
+import { LegoAirplane, LegoAirplaneToken, LegoHelicopter, LegoHelicopterToken, PoapDispenser, Spinner } from './components'
 import {openExternalUrl} from "~system/RestrictedActions"
 
 export function poapSystem(){
   let POAP_dispenser = engine.addEntity()
+  if (Array.from(engine.getEntitiesWith(PoapDispenser)).length === 0) {
+    // let POAP_dispenser = engine.addEntity()
+    PoapDispenser.create(POAP_dispenser)
     GltfContainer.create(POAP_dispenser, { 
       src: 'models/POAP_dispenser.glb',  
     })
     Transform.create(POAP_dispenser, {
-      position: {x: 1.1, y: 0, z:46},
+      position: {x: 1.1, y: 5, z:46},
       rotation: Quaternion.fromEulerDegrees(0, 90, 0)
     })
-    if (Array.from(engine.getEntitiesWith(LegoHelicopterToken)).length === 0 && Array.from(engine.getEntitiesWith(LegoAirplaneToken)).length === 0) {
-      pointerEventsSystem.onPointerDown(
-        {
-          entity: POAP_dispenser,
-          opts: {
-            button: InputAction.IA_POINTER,
-            hoverText: 'Claim the POAP!',
-          }
-        },
-        function () {openExternalUrl({url: "https://poap.xyz/mint/5kn3ha"})}
-      )
-    }
-  }
+  
+  // if (Array.from(engine.getEntitiesWith(LegoHelicopter)).length === 1 && Array.from(engine.getEntitiesWith(LegoAirplane)).length === 1) {
+    pointerEventsSystem.onPointerDown(
+      {
+        entity: POAP_dispenser,
+        opts: {
+          button: InputAction.IA_POINTER,
+          hoverText: 'Claim the POAP!',
+        }
+      },
+      function () {openExternalUrl({url: "https://poap.xyz/mint/5kn3ha"})}
+    )
+  // }
+}
+}
 
 /**
  * All cubes rotating behavior
@@ -57,9 +62,9 @@ export function collectedTokensSystem() {
       src: 'models/lego-airplane.glb',
     })
     Transform.create(plane, {
-      position: {x: 9, y: 2.95, z: 6.5},
-      rotation: {x: 0, y: 90, z: 0, w: 0},
-      scale: {x: 0.75, y: 0.75, z: 0.75},
+      position: {x: 26.5, y: 2.95, z: 32},
+      rotation: Quaternion.fromEulerDegrees(0, 90, 0),
+      scale: {x: 0.6, y: 0.6, z: 0.6},
     })
 
     const surpriseSound = engine.addEntity();
@@ -95,8 +100,30 @@ export function collectedTokensSystem() {
       src: 'models/lego-helicopter.glb',
     })
     Transform.create(helicopter, {
-      position: {x: 23.5, y: 2.95, z: 9},
-      rotation: Quaternion.fromEulerDegrees(0, 90, 0),
+      position: {x: 8, y: 2.95, z: 34.5},
+      rotation: Quaternion.fromEulerDegrees(0, 180, 0),
+      scale: {x: 0.75, y: 0.75, z: 0.75},
+    })
+
+    let helicopter2 = engine.addEntity()
+    LegoHelicopter.create(helicopter2)
+    GltfContainer.create(helicopter2, {
+      src: 'models/lego-helicopter.glb',
+    })
+    Transform.create(helicopter2, {
+      position: {x: 8, y: 2.95, z: 24.5},
+      rotation: Quaternion.fromEulerDegrees(0, 180, 0),
+      scale: {x: 0.75, y: 0.75, z: 0.75},
+    })
+
+    let helicopter3 = engine.addEntity()
+    LegoHelicopter.create(helicopter3)
+    GltfContainer.create(helicopter3, {
+      src: 'models/lego-helicopter.glb',
+    })
+    Transform.create(helicopter3, {
+      position: {x: 8, y: 2.95, z: 14.5},
+      rotation: Quaternion.fromEulerDegrees(0, 180, 0),
       scale: {x: 0.75, y: 0.75, z: 0.75},
     })
 
