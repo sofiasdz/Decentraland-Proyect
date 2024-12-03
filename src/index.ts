@@ -23,7 +23,7 @@ export function main() {
   createLegoHelicopterToken({x: 13.5, y: 5.5, z: 43.5})
 
   let legoStarPilot = engine.addEntity()
-GltfContainer.create(legoStarPilot, { 
+  GltfContainer.create(legoStarPilot, { 
      src: 'models/lego-star-pilot.glb', 
    })
    Transform.create(legoStarPilot, {
@@ -81,6 +81,26 @@ GltfContainer.create(legoStarPilot, {
             })
    
 
+  let legoStarPilot2 = engine.addEntity()
+  GltfContainer.create(legoStarPilot2, { 
+      src: 'models/lego-star-pilot.glb', 
+    })
+    Transform.create(legoStarPilot2, {
+      position: {x: 1, y: 5, z: 44},
+      scale: {x: 0.02, y: 0.02, z: 0.02},
+      rotation: Quaternion.fromEulerDegrees(0, 90, 0)
+    })
+
+
+    let legoStarPilot3 = engine.addEntity()
+    GltfContainer.create(legoStarPilot3, { 
+        src: 'models/lego-star-pilot.glb', 
+      })
+      Transform.create(legoStarPilot3, {
+        position: {x: 1, y: 5, z: 42},
+        scale: {x: 0.02, y: 0.02, z: 0.02},
+        rotation: Quaternion.fromEulerDegrees(0, 60, 0)
+      })
 
   let stage = engine.addEntity()
   GltfContainer.create(stage, { 

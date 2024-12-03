@@ -78,7 +78,7 @@ export function collectedTokensSystem() {
       src: 'models/lego-airplane-portrait.glb',  
     })
     Transform.create(legoAirplanePortrait, {
-      position: {x: 2.68, y: 1.9, z: 47.5},
+      position: {x: 2.95, y: 6.75, z: 47.35},
       rotation: Quaternion.fromEulerDegrees(90, 180, 0)
     })
     pointerEventsSystem.onPointerDown(
@@ -138,7 +138,7 @@ export function collectedTokensSystem() {
       src: 'models/lego-helicopter-portrait.glb',  
     })
     Transform.create(legoHelicopterPortrait, {
-      position: {x: 5.725, y: 1.9, z: 47.5},
+      position: {x: 5.85, y: 6.75, z: 47.35},
       rotation: Quaternion.fromEulerDegrees(90, 180, 0)
     })
     pointerEventsSystem.onPointerDown(

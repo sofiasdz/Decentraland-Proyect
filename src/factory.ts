@@ -16,7 +16,7 @@ export function createLegoAirplaneToken(position: {x: number, y: number, z: numb
   })
   Transform.create(token, {
     position: position,
-    // scale: {x: 0.25, y: 0.25, z: 0.25},
+    scale: {x: 1.25, y: 1.25, z: 1.25},
   })
   Spinner.create(token, { speed: 60 })
 
@@ -50,7 +50,7 @@ export function createLegoHelicopterToken(position: {x: number, y: number, z: nu
   })
   Transform.create(token, {
     position: position,
-    // scale: {x: 0.25, y: 0.25, z: 0.25},
+    scale: {x: 1.25, y: 1.25, z: 1.25},
   })
   Spinner.create(token, { speed: 60 })
 
