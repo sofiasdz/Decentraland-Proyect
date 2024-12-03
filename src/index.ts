@@ -61,6 +61,17 @@ GltfContainer.create(legoStarPilot, {
               scale: {x: 10, y: 10, z: 10},
               rotation: Quaternion.fromEulerDegrees(0,150 , 0)
             })
+     let bigSign = engine.addEntity()
+    GltfContainer.create(bigSign, { 
+              src: 'models/super_sign.glb', 
+            })
+            Transform.create(bigSign, {
+              position: {x: 11, y: 0, z: 6},
+              scale: {x: 1, y: 1, z: 1},
+              rotation: Quaternion.fromEulerDegrees(0,90 , 0)
+            })
+
+
   const sourceEntity = engine.addEntity()
 
   AudioSource.create(sourceEntity, {
